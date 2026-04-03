@@ -141,5 +141,5 @@ write memory
 ---
 
 ## 📂 Project File
-vlan-project.pkt
-images/topology.png
+- vlan-project.pkt
+- images/topology.png
