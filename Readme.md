@@ -143,3 +143,10 @@ write memory
 ## 📂 Project File
 - vlan-project.pkt
 - images/topology.png
+
+---
+
+## 📌 Conclusion
+This project successfully demonstrates the implementation of VLAN segmentation and inter-VLAN communication using the router-on-a-stick approach. It helped in understanding how logical network separation improves organization and security while still allowing controlled communication between VLANs. 
+
+Through this project, I gained practical experience in switch and router configuration, trunking, IP addressing, and basic network troubleshooting, building a strong foundation in networking concepts.
