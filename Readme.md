@@ -15,11 +15,11 @@ This project demonstrates VLAN configuration and inter-VLAN communication using 
 - VLAN 20 (IT): PC3, PC4
 
 ### Connections
-- PC1 → Fa0/1
-- PC2 → Fa0/2
-- PC3 → Fa0/3
-- PC4 → Fa0/4
-- Router → Fa0/5 (Trunk Port)
+- PC1 → fa0/1
+- PC2 → fa0/2
+- PC3 → fa0/3
+- PC4 → fa0/4
+- Router → fa0/5 (Trunk Port)
 
 ---
 
@@ -29,17 +29,17 @@ This project demonstrates VLAN configuration and inter-VLAN communication using 
 - Created VLAN 10 and VLAN 20
 
 ### 2. Port Assignment
-- Assigned Fa0/1 and Fa0/2 to VLAN 10
-- Assigned Fa0/3 and Fa0/4 to VLAN 20
+- Assigned fa0/1 and fa0/2 to VLAN 10
+- Assigned fa0/3 and fa0/4 to VLAN 20
 
 ### 3. Trunk Configuration
-- Configured Fa0/5 as trunk port to connect switch and router
+- Configured fa0/5 as trunk port to connect switch and router
 
 ### 4. Router Configuration (Router-on-a-Stick)
-- Enabled GigabitEthernet0/0
+- Enabled g0/0
 - Created sub-interfaces:
-  - G0/0.10 for VLAN 10
-  - G0/0.20 for VLAN 20
+  - g0/0.10 for VLAN 10
+  - g0/0.20 for VLAN 20
 - Configured encapsulation dot1Q
 - Assigned IP addresses as default gateways
 
@@ -103,14 +103,14 @@ write memory
 enable
 configure terminal
 
-interface gigabitEthernet0/0
+interface g0/0
 no shutdown
 
-interface gigabitEthernet0/0.10
+interface g0/0.10
 encapsulation dot1Q 10
 ip address 192.168.10.1 255.255.255.0
 
-interface gigabitEthernet0/0.20
+interface g0/0.20
 encapsulation dot1Q 20
 ip address 192.168.20.1 255.255.255.0
 
