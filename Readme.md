@@ -43,6 +43,13 @@ This project demonstrates VLAN configuration and inter-VLAN communication using 
 - Configured encapsulation dot1Q
 - Assigned IP addresses as default gateways
 
+### 5. Router Configuration (DHCP)
+
+- Configured router as DHCP server for dynamic IP allocation  
+- Excluded gateway IP addresses to avoid IP conflicts  
+- Created separate DHCP pools for VLAN 10 and VLAN 20  
+- Defined network ranges and default gateways for each VLAN  
+- Enabled automatic IP assignment to end devices  
 ---
 
 ## 🖥️ IP Addressing
@@ -50,10 +57,12 @@ This project demonstrates VLAN configuration and inter-VLAN communication using 
 ### VLAN 10 (HR)
 - Network: 192.168.10.0/24
 - Default Gateway: 192.168.10.1
+- IP Assignment: DHCP 
 
 ### VLAN 20 (IT)
 - Network: 192.168.20.0/24
 - Default Gateway: 192.168.20.1
+- IP Assignment: DHCP 
 
 ---
 
@@ -117,6 +126,31 @@ ip address 192.168.20.1 255.255.255.0
 end
 write memory
 ```
+
+### 🔹 Router Configuration (DHCP)
+```bash
+enable
+configure terminal
+
+ip dhcp excluded-address 192.168.10.1
+ip dhcp excluded-address 192.168.20.1
+
+ip dhcp pool VLAN10
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+
+ip dhcp pool VLAN20
+network 192.168.20.0 255.255.255.0
+default-router 192.168.20.1
+exit
+```
+### 🔹 Router Configuration (DHCP Verification Command)
+```bash
+enable
+show ip dhcp binding
+show ip dhcp pool
+show running-config | include dhcp
+```
 ## 📸 Network Topology
 ![Topology](images/topology.png)
 
@@ -126,7 +160,9 @@ write memory
 - Verified all interfaces are in UP state  
 - Tested connectivity using ping  
 - Successful communication within same VLAN  
-- Successful communication between VLAN 10 and VLAN 20  
+- Successful communication between VLAN 10 and VLAN 20
+- PCs received IP addresses automatically via DHCP
+- Tested if DHCP is working.
 
 ---
 
@@ -135,18 +171,24 @@ write memory
 - Switch port assignment  
 - Trunk configuration  
 - Inter-VLAN routing (Router-on-a-Stick)  
-- IP addressing and default gateway setup  
+- IP addressing and default gateway setup
+- DHCP configuration and IP automation   
 - Network troubleshooting using ping  
 
 ---
 
+## 🔄 Project Evolution
+- Version 1: VLAN + Inter-VLAN Routing  
+- Version 2: Added DHCP for automatic IP assignment
+
 ## 📂 Project File
-- vlan-project.pkt
+- vlan-project-v1.pkt
+- vlan-project-v2-dhcp.pkt
 - images/topology.png
 
 ---
 
 ## 📌 Conclusion
-This project successfully demonstrates the implementation of VLAN segmentation and inter-VLAN communication using the router-on-a-stick approach. It helped in understanding how logical network separation improves organization and security while still allowing controlled communication between VLANs. 
+This project successfully demonstrates the implementation of VLAN segmentation, inter-VLAN communication using the router-on-a-stick approach, and DHCP-based automatic IP address assignment. It helped in understanding how logical network separation improves organization and security while still allowing controlled communication between VLANs.
 
-Through this project, I gained practical experience in switch and router configuration, trunking, IP addressing, and basic network troubleshooting, building a strong foundation in networking concepts.
+Through this project, I gained practical experience in switch and router configuration, trunking, IP addressing, DHCP configuration, and basic network troubleshooting, building a strong foundation in networking concepts.
