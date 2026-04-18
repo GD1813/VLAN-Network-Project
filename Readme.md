@@ -1,7 +1,7 @@
 # VLAN Network Project (Cisco Packet Tracer)
 
 ## 📌 Project Overview
-This project demonstrates VLAN configuration and inter-VLAN communication using the router-on-a-stick method in Cisco Packet Tracer. A single router interface is used to route traffic between multiple VLANs configured on a switch.
+This project demonstrates VLAN configuration, inter-VLAN communication using the router-on-a-stick method, and DHCP-based automatic IP address assignment in Cisco Packet Tracer. A single router interface is used to route traffic between multiple VLANs configured on a switch, while DHCP is used to dynamically assign IP addresses to devices in each VLAN.
 
 ---
 
