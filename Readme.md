@@ -33,7 +33,7 @@ This project demonstrates VLAN configuration, inter-VLAN communication using the
 - Assigned fa0/3 and fa0/4 to VLAN 20
 
 ### 3. Trunk Configuration
-- Configured fa0/5 as trunk port to connect switch and router
+- Configured fa0/5 as trunk port to connect switch(fa0/5) and router (g0/0).
 
 ### 4. Router Configuration (Router-on-a-Stick)
 - Enabled g0/0
@@ -68,6 +68,7 @@ This project demonstrates VLAN configuration, inter-VLAN communication using the
 
 ## 🔄 Inter-VLAN Routing
 Inter-VLAN communication is achieved using the router-on-a-stick method, where a single router interface handles multiple VLANs using sub-interfaces.
+Router uses sub-interfaces with dot1Q encapsulation to route traffic between VLANs.
 
 ---
 
@@ -75,6 +76,7 @@ Inter-VLAN communication is achieved using the router-on-a-stick method, where a
 
 ### 🔹 Switch Configuration
 ```bash
+
 enable
 configure terminal
 
@@ -109,6 +111,7 @@ write memory
 
 ### 🔹 Router Configuration
 ```bash
+
 enable
 configure terminal
 
@@ -129,8 +132,6 @@ write memory
 
 ### 🔹 Router Configuration (DHCP)
 ```bash
-enable
-configure terminal
 
 ip dhcp excluded-address 192.168.10.1
 ip dhcp excluded-address 192.168.20.1
@@ -162,7 +163,7 @@ show running-config | include dhcp
 - Successful communication within same VLAN  
 - Successful communication between VLAN 10 and VLAN 20
 - PCs received IP addresses automatically via DHCP
-- Tested if DHCP is working.
+- Verified DHCP functionality using CLI commands.
 
 ---
 
