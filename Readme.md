@@ -19,7 +19,7 @@ This project demonstrates VLAN configuration, inter-VLAN communication using the
 - PC2 → fa0/2
 - PC3 → fa0/3
 - PC4 → fa0/4
-- Router → fa0/5 (Trunk Port)
+- Router (ga0/0) → Switch(fa0/5) (Trunk Port)
 
 ---
 
